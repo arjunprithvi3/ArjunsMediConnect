@@ -1,0 +1,36 @@
+<div class="patient-details">
+    <h2>Patient Details</h2>
+    <div class="details-container">
+      <div class="detail-row">
+        <label>Patient ID:</label>
+        <span>{{ patient.patientId }}</span>
+      </div>
+      <div class="detail-row">
+        <label>Full Name:</label>
+        <span>{{ patient.fullName }}</span>
+      </div>
+      <div class="detail-row">
+        <label>Date of Birth:</label>
+        <span>{{ patient.dateOfBirth | date:'yyyy-MM-dd' }}</span>
+      </div>
+      <div class="detail-row">
+        <label>Contact Number:</label>
+        <span>{{ patient.contactNumber }}</span>
+      </div>
+      <div class="detail-row">
+        <label>Email:</label>
+        <span>{{ patient.email }}</span>
+      </div>
+      <div class="detail-row">
+        <label>Address:</label>
+        <span>{{ patient.address }}</span>
+      </div>
+    </div>
+    <button (click)="logPatientAttributes()" class="log-btn">Log Patient Details</button>
+    <div class="hidden-log" style="display:none;">patientId: {{ patient.patientId }}
+  fullName: {{ patient.fullName }}
+  dateOfBirth: {{ patient.dateOfBirth | date:'yyyy-MM-dd' }}
+  contactNumber: {{ patient.contactNumber }}
+  email: {{ patient.email }}
+  address: {{ patient.address }}</div>
+  </div>

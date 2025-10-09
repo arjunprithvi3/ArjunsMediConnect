@@ -1,0 +1,36 @@
+<div class="doctor-details">
+    <h2>Doctor Details</h2>
+    <div class="details-container">
+      <div class="detail-row">
+        <label>Doctor ID:</label>
+        <span>{{ doctor.doctorId }}</span>
+      </div>
+      <div class="detail-row">
+        <label>Full Name:</label>
+        <span>{{ doctor.fullName }}</span>
+      </div>
+      <div class="detail-row">
+        <label>Specialty:</label>
+        <span>{{ doctor.specialty }}</span>
+      </div>
+      <div class="detail-row">
+        <label>Contact Number:</label>
+        <span>{{ doctor.contactNumber }}</span>
+      </div>
+      <div class="detail-row">
+        <label>Email:</label>
+        <span>{{ doctor.email }}</span>
+      </div>
+      <div class="detail-row">
+        <label>Years of Experience:</label>
+        <span>{{ doctor.yearsOfExperience }} years</span>
+      </div>
+    </div>
+    <button (click)="logDoctorAttributes()" class="log-btn">Log Doctor Details</button>
+    <div class="hidden-log" style="display:none;">doctorId: {{ doctor.doctorId }}
+  fullName: {{ doctor.fullName }}
+  specialty: {{ doctor.specialty }}
+  contactNumber: {{ doctor.contactNumber }}
+  email: {{ doctor.email }}
+  yearsOfExperience: {{ doctor.yearsOfExperience }}</div>
+  </div>

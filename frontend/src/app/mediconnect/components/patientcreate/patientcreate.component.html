@@ -1,0 +1,83 @@
+<div class="patient-create"></div>
+    <h2>Create Patient</h2>
+    <form #patientForm="ngForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="patientId">Patient ID:</label>
+        <input 
+          type="number" 
+          id="patientId" 
+          name="patientId" 
+          [(ngModel)]="patient.patientId" 
+          required 
+          min="1"
+        />
+      </div>
+  
+      <div class="form-group">
+        <label for="fullName">Full Name:</label>
+        <input 
+          type="text" 
+          id="fullName" 
+          name="fullName" 
+          [(ngModel)]="patient.fullName" 
+          required
+        />
+      </div>
+  
+      <div class="form-group">
+        <label for="dateOfBirth">Date of Birth:</label>
+        <input 
+          type="date" 
+          id="dateOfBirth" 
+          name="dateOfBirth" 
+          [(ngModel)]="patient.dateOfBirth" 
+          required
+        />
+      </div>
+  
+      <div class="form-group">
+        <label for="contactNumber">Contact Number:</label>
+        <input 
+          type="tel" 
+          id="contactNumber" 
+          name="contactNumber" 
+          [(ngModel)]="patient.contactNumber" 
+          required
+        />
+      </div>
+  
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input 
+          type="email" 
+          id="email" 
+          name="email" 
+          [(ngModel)]="patient.email" 
+          required
+        />
+      </div>
+  
+      <div class="form-group">
+        <label for="address">Address:</label>
+        <textarea 
+          id="address" 
+          name="address" 
+          [(ngModel)]="patient.address" 
+          required
+          rows="3"
+        ></textarea>
+      </div>
+  
+      <div class="form-actions">
+        <button type="submit" class="btn-submit">Submit</button>
+        <button type="button" class="btn-reset" (click)="resetForm()">Reset</button>
+      </div>
+  
+      <div class="feedback" *ngIf="successMessage" class="success-message">
+        {{ successMessage }}
+      </div>
+      <div class="feedback" *ngIf="errorMessage" class="error-message">
+        {{ errorMessage }}
+      </div>
+    </form>
+  </div>

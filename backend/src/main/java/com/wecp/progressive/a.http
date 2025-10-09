@@ -1,0 +1,7 @@
+GET http://localhost:5000/patient/fromArrayList
+Content-Type: application/json
+
+# {
+#     "fullName": "temp",
+#     "contactNumber": "9876543211"
+# }
