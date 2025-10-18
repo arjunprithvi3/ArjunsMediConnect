@@ -1,0 +1,48 @@
+<div class="container">
+  <form [formGroup]="clinicForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label>Doctor:</label>
+      <input type="text" formControlName="doctor" readonly />
+    </div>
+
+    <div>
+      <label>Clinic Name:</label>
+      <input type="text" formControlName="clinicName" />
+      <div *ngIf="submitted && clinicForm.controls['clinicName'].invalid">
+        Clinic Name is required and must be at least 2 characters.
+      </div>
+    </div>
+
+    <div>
+      <label>Location:</label>
+      <input type="text" formControlName="location" />
+      <div *ngIf="submitted && clinicForm.controls['location'].invalid">
+        Location is required.
+      </div>
+    </div>
+
+    <div>
+      <label>Contact Number:</label>
+      <input type="text" formControlName="contactNumber" />
+      <div *ngIf="submitted && clinicForm.controls['contactNumber'].invalid">
+        Contact Number must be exactly 10 digits.
+      </div>
+    </div>
+
+    <div>
+      <label>Established Year:</label>
+      <input type="text" formControlName="establishedYear" />
+      <div *ngIf="submitted && clinicForm.controls['establishedYear'].invalid">
+        Enter a valid year (e.g., 1990, 2020).
+      </div>
+    </div>
+
+    <button type="submit" [disabled]="clinicForm.invalid">Submit</button>
+    <button type="button" (click)="resetForm()">Reset</button>
+
+    <p *ngIf="successMessage" class="success-message">{{ successMessage }}</p>
+    <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
+
+    <a routerLink="/dashboard">Go to Dashboard</a>
+  </form>
+</div>

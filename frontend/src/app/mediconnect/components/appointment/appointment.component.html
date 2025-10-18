@@ -1,0 +1,80 @@
+<form [formGroup]="appointmentForm" (ngSubmit)="onSubmit()" novalidate>
+
+  <div>
+      <label for="appointmentId">Appointment ID:</label>
+      <input id="appointmentId" type="number" formControlName="appointmentId" />
+      <span class="error" *ngIf="f.appointmentId.invalid && f.appointmentId.touched">Required</span>
+      <span class="error" *ngIf="f.appointmentId.invalid && f.appointmentId.touched">Must be a positive
+          integer</span>
+  </div>
+
+  
+  <div>
+      <label for="patientId">Patient ID:</label>
+      <input id="patientId" type="number" formControlName="patientId" />
+      <span class="error" *ngIf="f.patientId.invalid && f.patientId.touched">Required</span>
+      <span class="error" *ngIf="f.patientId.invalid && f.patientId.touched">Must be a positive integer</span>
+  </div>
+
+  
+  <div>
+      <label for="clinicId">Clinic ID:</label>
+      <input id="clinicId" type="number" formControlName="clinicId" />
+      <span class="error" *ngIf="f.clinicId.invalid && f.clinicId.touched">Required</span>
+      <span class="error" *ngIf="f.clinicIdinvalid && f.clinicId.touched">Must be a positive integer</span>
+  </div>
+
+  
+  <div>
+      <label for="appointmentDate">Appointment Date:</label>
+      <input id="appointmentDate" type="date" formControlName="appointmentDate" />
+      <span class="error" *ngIf="f.appointmentDate.invalid && f.appointmentDate.touched">Required</span>
+      <span class="error" *ngIf="f.appointmentDate.invalid && f.appointmentDate.touched">Must be today or future</span>
+  </div>
+
+
+  <div>
+      <label for="status">Status:</label>
+      <input type="text" name="status" id="status" formControlName="status">
+      <!-- <select id="status" formControlName="status">
+          <option value="">Select Status</option>
+          <option value="scheduled">Scheduled</option>
+          <option value="completed">Completed</option>
+          <option value="cancelled">Cancelled</option>
+      </select> -->
+      <span class="error" *ngIf="f.status.invalid && f.status.touched">Status is required</span>
+  </div>
+
+  <!-- Field 6: Purpose -->
+  <div>
+      <label for="purpose">Purpose:</label>
+      <textarea id="purpose" formControlName="purpose"></textarea>
+      <span class="error" *ngIf="f.purpose.invalid && f.purpose.touched">Required</span>
+      <span class="error" *ngIf="f.purpose.invalid && f.purpose.touched">At least 5 characters</span>
+  </div>
+
+  <!-- Buttons -->
+  <button type="submit">Submit</button>
+  <button type="button" (click)="resetForm()">Reset</button>
+</form>
+
+<!-- Messages -->
+<div class="success" *ngIf="successMessage">{{ successMessage }}</div>
+<div class="error" *ngIf="errorMessage">{{ errorMessage }}</div>
+
+<!-- Inline styles for errors (or move to SCSS/CSS) -->
+<style>
+  .error {
+      color: red;
+      font-size: 0.8em;
+  }
+
+  .success {
+      color: green;
+      font-size: 1em;
+  }
+
+  div {
+      margin-bottom: 10px;
+  }
+</style>

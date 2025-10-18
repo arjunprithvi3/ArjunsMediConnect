@@ -1,0 +1,129 @@
+<div class="patient-div">
+  <form [formGroup]="patientForm" (ngSubmit)="onSubmit()">
+
+    <!-- Patient ID -->
+    <label for="patientId">Patient ID</label>
+    <input type="number" id="patientId" formControlName="patientId" placeholder="Id" />
+    <div *ngIf="submitted && patientId?.invalid" class="error-message">
+      Patient ID is required and must be greater than 0.
+    </div>
+
+    <!-- Full Name -->
+    <label for="fullName">Full Name</label>
+    <input type="text" id="fullName" formControlName="fullName" placeholder="Full Name" />
+    <div *ngIf="submitted && fullName?.invalid" class="error-message">
+      Full Name is required and must be at least 2 characters.
+    </div>
+
+    <!-- Date of Birth -->
+    <label for="dateOfBirth">Date of Birth</label>
+    <input type="date" id="dateOfBirth" formControlName="dateOfBirth" placeholder="DOB" />
+    <div *ngIf="submitted && dateOfBirth?.invalid" class="error-message">
+      Date of Birth is required.
+    </div>
+
+    <!-- Contact Number -->
+    <label for="contactNumber">Contact Number</label>
+    <input type="text" id="contactNumber" formControlName="contactNumber" placeholder="Contact Number" />
+    <div *ngIf="submitted && contactNumber?.invalid" class="error-message">
+      Contact Number must be exactly 10 digits.
+    </div>
+
+    <!-- Email -->
+    <label for="email">Email</label>
+    <input type="email" id="email" formControlName="email" placeholder="Email" />
+    <div *ngIf="submitted && email?.invalid" class="error-message">
+      Valid Email is required.
+    </div>
+
+    <!-- Address -->
+    <label for="address">Address</label>
+    <input type="text" id="address" formControlName="address" placeholder="Address" />
+    <div *ngIf="submitted && address?.invalid" class="error-message">
+      Address is required and must be at least 5 characters.
+    </div>
+
+    <!-- Buttons -->
+    <button type="submit" id="submitBtn" [disabled]="patientForm.invalid">Submit</button>
+    <button type="button" (click)="resetForm()" id="resetBtn">Reset</button>
+
+    <!-- Navigation -->
+    <div class="navigation">
+      <a routerLink="/dashboard" class="dashboard-link">Back to Dashboard</a>
+    </div>
+
+    <!-- Messages -->
+    <div *ngIf="successMessage" class="success-message">{{ successMessage }}</div>
+    <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+
+  </form>
+</div>
+
+<!-- 
+<div class="form-container">
+  <h2>Create Patient</h2>
+  <form (submit)="onSubmit(); $event.preventDefault()">
+    <div class="form-group">
+      <label for="patientId">Patient ID:</label>
+      <input type="number" id="patientId" [(ngModel)]="patient.patientId" name="patientId" required min="1" />
+    </div>
+
+    <div class="form-group">
+      <label for="fullName">Full Name:</label>
+      <input type="text" id="fullName" [(ngModel)]="patient.fullName" name="fullName" required minlength="2" />
+    </div>
+
+    <div class="form-group">
+      <label for="dateOfBirth">Date of Birth:</label>
+      <input type="date" id="dateOfBirth" [(ngModel)]="patient.dateOfBirth" name="dateOfBirth" required />
+    </div>
+
+    <div class="form-group">
+      <label for="contactNumber">Contact Number:</label>
+      <input type="text" id="contactNumber" [(ngModel)]="patient.contactNumber" name="contactNumber" required
+        pattern="\d{10}" />
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" id="email" [(ngModel)]="patient.email" name="email" required />
+    </div>
+
+    <div class="form-group">
+      <label for="address">Address:</label>
+      <textarea id="address" [(ngModel)]="patient.address" name="address" required minlength="5"></textarea>
+    </div>
+
+    <div class="form-actions">
+      <button type="submit">Submit</button>
+      <button type="button" (click)="resetForm()">Reset</button>
+    </div>
+  </form>
+
+  <div *ngIf="successMessage" class="success-message">{{ successMessage }}</div>
+  <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+</div> -->
+
+
+
+
+
+
+<!-- <div class="patient-div">
+  <form>
+    <input type="number" name="patientId" id="patientId" [(ngModel)]="patient.patientId" placeholder="Id" />
+    <input type="text" name="fullName" id="fullName" [(ngModel)]="patient.fullName" placeholder="full name" />
+    <input type="text" name="dateOfBirth" id="dateOfBirth" [(ngModel)]="patient.dateOfBirth" placeholder="DOB"/>
+    <input type="date" name="dateOfBirth" id="dateOfBirth" [(ngModel)]="patient.dateOfBirth" placeholder="DOB" />
+    <input type="text" name="contactNumber" id="contactNumber" [(ngModel)]="patient.contactNumber"
+      placeholder="contact number" />
+    <input type="email" name="email" id="email" [(ngModel)]="patient.email" placeholder="email" />
+    <input type="text" name="address" id="address" [(ngModel)]="patient.address" placeholder="address" />
+  </form>
+
+  <button (click)="onSubmit()" id="submitBtn">Submit</button>
+  <button (click)="resetForm()" id="resetBtn">Reset</button>
+
+  <div *ngIf="successMessage" class="success-message">{{successMessage}}</div>
+  <div *ngIf="errorMessage" class="error-message">{{errorMessage}}</div>
+</div> --> 

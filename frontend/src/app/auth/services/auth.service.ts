@@ -23,7 +23,7 @@ export class AuthService {
     return new Observable();
   }
 
-  createUser(user: User): Observable<User> {
+  createUser(user: User): Observable<any> {
     return new Observable();
   }
 }
